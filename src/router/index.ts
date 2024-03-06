@@ -1,6 +1,11 @@
+// Importe os componentes necessários
 import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '../views/LoginView.vue'
 import MenuView from '../views/MenuView.vue'
+import DataList from '../views/DataListView.vue'
+import DiskRegistration from '../views/DiskRegistrationView.vue'
+import UserRegistration from '../views/UserRegistrationView.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -26,8 +31,8 @@ const router = createRouter({
     },
     {
       path: '/registroUsuario',
-      name: 'userRegistration',
-      component: userRegistration
+      name: 'UserRegistration',
+      component: UserRegistration
     }
   ]
 })
