@@ -29,11 +29,11 @@ Certifique-se de ter o Node.js e o npm instalados em sua máquina.
 1. Clone o repositório:
 https://github.com/FLaVio-G/teste-dt.git
 
- 2. Instale as dependencias
+ 2. Instale as dependencias:
 npm i 
 
-3. execute o projeto
- npm run dev  
+3. execute o projeto:
+npm run dev  
 
 
 
