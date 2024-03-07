@@ -32,6 +32,10 @@
                 </div>
                 <button type="submit"
                     class="w-full bg-black text-green-500 p-2 rounded hover:bg-green-600 transition duration-300">Cadastrar</button>
+                <router-link to="/menu">
+                    <button
+                        class="w-full bg-green-500 text-black p-2 rounded hover:bg-green-600 transition duration-300 mt-4">Voltar</button>
+                </router-link>
             </form>
         </div>
     </div>
