@@ -1,5 +1,7 @@
 # teste-dt
 
+Locadora de filmes/Jogos
+
 O desafio
 Você irá construir de um cadastro cliente simples e associação de produtos
 oferecidos ao mesmo, A tela de cadastro de produtos deve conter os seguintes
