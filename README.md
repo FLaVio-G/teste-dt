@@ -19,6 +19,7 @@ opções de edição, inativar/ativar e associar produtos.
 - Vue.js
 - Vue Router
 - Tailwind CSS
+- vuetifyjs
 
 ## Pré-requisitos
 
