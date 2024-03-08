@@ -1,0 +1,17 @@
+{
+  "clientes": [
+    {
+      "nome": "Cliente A funcionou",
+      "documento": "123456789",
+      "telefone": "987654321",
+      "email": "clienteA@example.com",
+      "status": "Ativo",
+      "produtos": ["Produto B", "Produto C"]
+    }
+  ],
+  "produtos": [
+    { "nome": "Disco 1", "status": "Ativo" },
+    { "nome": "Disco 2", "status": "Ativo" },
+    { "nome": "Disco 3", "status": "Ativo" }
+  ]
+}

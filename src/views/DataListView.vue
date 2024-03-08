@@ -12,40 +12,25 @@
             <th class="py-2 px-4 border-b">Telefone</th>
             <th class="py-2 px-4 border-b">E-mail</th>
             <th class="py-2 px-4 border-b">Status</th>
+            <th class="py-2 px-4 border-b">Produtos</th>
             <th class="py-2 px-4 border-b">Ações</th>
           </tr>
         </thead>
         <tbody>
-          <!-- Cliente 1 -->
-          <tr>
-            <td class="py-2 px-4 border-b">Cliente A</td>
-            <td class="py-2 px-4 border-b">123456789</td>
-            <td class="py-2 px-4 border-b">987654321</td>
-            <td class="py-2 px-4 border-b">clienteA@example.com</td>
-            <td class="py-2 px-4 border-b">Ativo</td>
+          <!-- Loop para exibir clientes -->
+          <tr v-for="cliente in clientes.clientes" :key="cliente.name">
+            <td class="py-2 px-4 border-b">{{ cliente.name }}</td>
+            <td class="py-2 px-4 border-b">{{ cliente.document }}</td>
+            <td class="py-2 px-4 border-b">{{ cliente.phone }}</td>
+            <td class="py-2 px-4 border-b">{{ cliente.email }}</td>
+            <td class="py-2 px-4 border-b">{{ cliente.active ? 'Ativo' : 'Inativo' }}</td>
+            <td class="py-2 px-4 border-b">{{ cliente.produtos ? cliente.produtos.join(', ') : '' }}</td>
             <td class="py-2 px-4 border-b">
               <button class="text-blue-500 hover:text-blue-700 mr-2">Editar</button>
               <button class="text-red-500 hover:text-red-700">Inativar</button>
               <button class="text-green-500 hover:text-green-700">Associar Produtos</button>
             </td>
           </tr>
-
-          <!-- Cliente 2 -->
-          <tr>
-            <td class="py-2 px-4 border-b">Cliente B</td>
-            <td class="py-2 px-4 border-b">987654321</td>
-            <td class="py-2 px-4 border-b">123456789</td>
-            <td class="py-2 px-4 border-b">clienteB@example.com</td>
-            <td class="py-2 px-4 border-b">Ativo</td>
-            <td class="py-2 px-4 border-b">
-              <button class="text-blue-500 hover:text-blue-700 mr-2">Editar</button>
-              <button class="text-red-500 hover:text-red-700">Inativar</button>
-              <button class="text-green-500 hover:text-green-700">Associar Produtos</button>
-            </td>
-          </tr>
-
-          <!-- ... (adicionar mais clientes conforme necessário) ... -->
-
         </tbody>
       </table>
 
@@ -60,35 +45,23 @@
           </tr>
         </thead>
         <tbody>
-          <!-- Produto 1 -->
-          <tr>
-            <td class="py-2 px-4 border-b">Disco 1</td>
-            <td class="py-2 px-4 border-b">Ativo</td>
+          <!-- Loop para exibir produtos -->
+          <tr v-for="produto in produtos" :key="produto.nome">
+            <td class="py-2 px-4 border-b">{{ produto.nome }}</td>
+            <td class="py-2 px-4 border-b">{{ produto.status }}</td>
             <td class="py-2 px-4 border-b">
               <button class="text-blue-500 hover:text-blue-700 mr-2">Editar</button>
               <button class="text-red-500 hover:text-red-700">Inativar</button>
             </td>
           </tr>
-
-          <!-- Produto 2 -->
-          <tr>
-            <td class="py-2 px-4 border-b">Disco 2</td>
-            <td class="py-2 px-4 border-b">Ativo</td>
-            <td class="py-2 px-4 border-b">
-              <button class="text-blue-500 hover:text-blue-700 mr-2">Editar</button>
-              <button class="text-red-500 hover:text-red-700">Inativar</button>
-            </td>
-          </tr>
-
-          <!-- ... (adicionar mais produtos conforme necessário) ... -->
-
         </tbody>
       </table>
 
       <!-- Botão de Voltar -->
       <router-link to="/menu">
-        <button
-          class="w-full bg-green-500 text-black p-2 rounded hover:bg-green-600 transition duration-300 mt-4">Voltar</button>
+        <button class="w-full bg-green-500 text-black p-2 rounded hover:bg-green-600 transition duration-300 mt-4">
+          Voltar
+        </button>
       </router-link>
     </div>
   </div>
@@ -96,7 +69,23 @@
 
 <script>
 export default {
-  // Se houver necessidade de adicionar lógica ou dados dinâmicos, faça isso aqui
+  data() {
+    // Carrega os clientes do Local Storage ou utiliza um array vazio se não houver dados no Local Storage
+    const clientes = JSON.parse(localStorage.getItem('clientes')) || [];
+    // Carrega os produtos do Local Storage ou utiliza um array vazio se não houver dados no Local Storage
+    const produtos = JSON.parse(localStorage.getItem('produtos')) || [];
+    console.log('Clientes no Local Storage:', localStorage.getItem('clientes'));
+
+
+    console.log('Clientes no Local Storage:', clientes);
+    console.log('Produtos no Local Storage:', produtos);
+
+    return {
+      clientes: clientes,
+      produtos: produtos
+    };
+  },
+  // Outra lógica do componente...
 };
 </script>
 
